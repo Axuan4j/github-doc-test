@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Minute Countdown Timer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #timer {
+            font-size: 2em;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">30:00:000</div>
+
+    <script>
+        $(document).ready(function() {
+            let startTime = 30 * 60 * 1000; // 30 minutes in milliseconds
+            let endTime = Date.now() + startTime;
+
+            function updateTimer() {
+                let remainingTime = endTime - Date.now();
+
+                if (remainingTime <= 0) {
+                    $("#timer").text("00:00:000");
+                    return;
+                }
+
+                let minutes = Math.floor(remainingTime / (60 * 1000));
+                let seconds = Math.floor((remainingTime % (60 * 1000)) / 1000);
+                let milliseconds = remainingTime % 1000;
+
+                // Format time
+                let formattedMinutes = minutes.toString().padStart(2, '0');
+                let formattedSeconds = seconds.toString().padStart(2, '0');
+                let formattedMilliseconds = milliseconds.toString().padStart(3, '0');
+
+                $("#timer").text(`${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`);
+
+                requestAnimationFrame(updateTimer);
+            }
+
+            requestAnimationFrame(updateTimer);
+        });
+    </script>
+</body>
+</html>
+

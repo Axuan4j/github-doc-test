@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "dev": "vitepress dev docs --port=10090 --host",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  }
+}
