@@ -2,7 +2,8 @@ name: Deploy VitePress to GitHub Pages
 
 on:
   push:
-    branches: [ "main","doc" ]
+    branches:
+      - doc
 
 jobs:
   build:
