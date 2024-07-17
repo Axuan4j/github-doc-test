@@ -2,12 +2,11 @@ name: Deploy VitePress to GitHub Pages
 
 on:
   push:
-    branches: [doc]
+    branches: [ "doc" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -15,9 +14,9 @@ jobs:
           ref: doc
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
-          node-version: '18.x'
+          node-version: "18.x"
 
       - name: Install dependencies
         run: npm install
