@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "测试文档111"
+  name: "测试文档11"
   text: "这是一个测试文档的内容"
   tagline: My great project tagline
   actions:
